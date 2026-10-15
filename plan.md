@@ -75,6 +75,8 @@ REQUIRED_ARRIVAL_DATE = "2027-01-22"   # outbound arrival date, Tokyo local
 ARRIVAL_EARLIEST_LOCAL = None          # optional, e.g. "07:00"; None = no minimum
 ARRIVAL_LATEST_LOCAL = "19:00"         # outbound arrival cutoff, Asia/Tokyo
 
+RED_EYE_DEPART_BEFORE_LOCAL = "05:00"  # outbound departs before this (Asia/Singapore) = red-eye
+RED_EYE_PENALTY_SGD = 300              # total for group: allowed, but avoided unless clearly cheaper
 NARITA_PENALTY_SGD = 200               # total for group: transfer cost + time
 EXTRA_NIGHT_COST_SGD = None            # TODO: fill in — applies to return on Jan 31
 LCC_BAG_FEE_PER_PAX_SGD = {}           # e.g. {"Scoot": <fee>} if prices exclude bags
@@ -172,11 +174,14 @@ Store raw quoted prices only. Adjustments (Narita penalty, extra night, LCC bag 
 ```
 adjusted = total_price_sgd
          + (NARITA_PENALTY_SGD if arrival_airport == "NRT")
+         + (RED_EYE_PENALTY_SGD if depart time < RED_EYE_DEPART_BEFORE_LOCAL)
          + (EXTRA_NIGHT_COST_SGD if return_date == "2027-01-31")
          + (LCC_BAG_FEE_PER_PAX_SGD[airline] * 4 if bags not included)
 ```
 
 Arrival constraint: compute `meets_arrival = arrival date == REQUIRED_ARRIVAL_DATE and arrival time <= ARRIVAL_LATEST_LOCAL and (ARRIVAL_EARLIEST_LOCAL is None or arrival time >= ARRIVAL_EARLIEST_LOCAL)` (Tokyo local). Implement as one helper, `meets_arrival_window(itinerary, cfg)`, so the window is a config change only — no code edits when the earliest hour gets set later. In the v2 watch dict these become `arrival_earliest` / `arrival_latest`. **Store all itineraries regardless** (so the cutoff can be revisited), but exclude `meets_arrival = False` from deal alerts and from the "best option" in reports. Store `arrive_time` as a full local datetime, not just a time, so the date check works.
+
+Label red-eye outbounds (`depart_time` before `RED_EYE_DEPART_BEFORE_LOCAL`) as "red-eye" in alerts and reports.
 
 ## Cron
 
