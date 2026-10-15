@@ -18,7 +18,7 @@ OUTBOUND_DATES = ["2027-01-22"]
 RETURN_DATES   = ["2027-01-30", "2027-01-31"]
 ADULTS = 4
 CURRENCY = "SGD"
-DESTINATIONS = ["HND", "NRT"]          # see "Airport query" below
+DESTINATIONS = ["HND", "NRT"]
 
 REQUIRED_ARRIVAL_DATE = "2027-01-22"   # outbound arrival date, Tokyo local
 ARRIVAL_EARLIEST_LOCAL = None          # optional, e.g. "07:00"; None = no minimum
