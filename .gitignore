@@ -1,5 +1,5 @@
 .env
-flights.db
+*flights.db
 logs/
 .venv/
 __pycache__/
