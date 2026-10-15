@@ -42,6 +42,8 @@ flight_tracker/
 ├── fetch.py           # Source adapters (serpapi, fast_flights) + retry/fallback logic
 ├── validate.py        # Sanity checks that turn silent failures into failures
 ├── db.py              # SQLite schema + insert/query helpers
+├── analysis.py        # Pure helpers: arrival window, red-eye, adjusted cost
+├── alerts.py          # Builds failure-summary and deal-alert message text
 ├── notify.py          # Telegram sendMessage wrapper
 ├── run.py             # Entry point for cron: one full snapshot run
 ├── heartbeat.py       # Entry point for cron: alert if no success in 24h
@@ -78,7 +80,8 @@ ARRIVAL_LATEST_LOCAL = "19:00"         # outbound arrival cutoff, Asia/Tokyo
 RED_EYE_DEPART_BEFORE_LOCAL = "05:00"  # outbound departs before this (Asia/Singapore) = red-eye
 RED_EYE_PENALTY_SGD = 300              # total for group: allowed, but avoided unless clearly cheaper
 NARITA_PENALTY_SGD = 200               # total for group: transfer cost + time
-EXTRA_NIGHT_COST_SGD = None            # TODO: fill in — applies to return on Jan 31
+EXTRA_NIGHT_COST_SGD = None            # TODO: fill in; until then excluded and labelled "extra night not included"
+EXTRA_NIGHT_RETURN_DATE = "2027-01-31" # return date that needs the extra lodging night
 LCC_BAG_FEE_PER_PAX_SGD = {}           # e.g. {"Scoot": <fee>} if prices exclude bags
 DEAL_THRESHOLD_SGD = None              # set after ~1 week of data
 
