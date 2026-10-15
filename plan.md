@@ -100,6 +100,7 @@ RETRY_DELAYS_SEC = [30, 120, 300]      # 3 retries after first attempt, + jitter
 ### fast-flights (fallback)
 - Unofficial Google Flights scraper; used only when SerpApi fails after retries
 - Normalize its output into the same itinerary dict shape as SerpApi
+- **Verified 2026-10-15:** use `fast-flights==3.1.0` (2.2 is broken by newer `primp`; 3.1.0 imports `typing_extensions` without declaring it, so install it explicitly). API: `create_query(flights=[FlightQuery(...)×2], trip="round-trip", passengers=Passengers(adults=4), currency="SGD", max_stops=0, language="en-US")` → `get_flights(q)`. `"HND,NRT"` in one query raises `IndexError`, so query each airport separately (no quota cost). Results are dataclasses (`dataclasses.asdict` → JSON); prices matched SerpApi totals for 4 pax; no flight numbers (store NULL); returns fewer itineraries than SerpApi (missed ZIPAIR, TR 804, NH 842 on 2027-01-22→30)
 
 ### Airport query
 - If `arrival_id` accepts both airports, use one query per date pair and read the airport from each result
@@ -112,11 +113,9 @@ Per query (one date pair):
 2. After all SerpApi attempts fail, try fast-flights once
 3. If everything fails, mark the date pair failed for this run and move on — never crash the whole run
 
-Validation (`validate.py`) treats these as failures:
-- Zero direct itineraries returned
-- Any total price outside the sanity range
-- Missing airline, airport code, or departure time
-- Response currency not SGD
+Validation (`validate.py`):
+- **Drops a single itinerary** (logged, not retried) when its price is missing or outside the sanity range, or it lacks airline, airport code, or departure time. One odd item must not burn quota on retries.
+- **Fails the whole response** (outcome `invalid`, retried) when the response currency is not SGD, or zero itineraries remain after dropping. A per-pax price bug would push every item out of range, so it still fails here.
 
 Logging:
 - Every attempt → row in `fetch_log`

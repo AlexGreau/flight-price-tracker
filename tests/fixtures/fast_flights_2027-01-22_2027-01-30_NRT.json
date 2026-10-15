@@ -1,0 +1,284 @@
+[
+  {
+    "type": "TR",
+    "price": 3120,
+    "airlines": [
+      "Scoot"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            23,
+            30
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            23
+          ],
+          "time": [
+            7,
+            10
+          ]
+        },
+        "duration": 400,
+        "plane_type": "Boeing 787"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1136000
+    }
+  },
+  {
+    "type": "NH",
+    "price": 3732,
+    "airlines": [
+      "ANA"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            0,
+            55
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            8,
+            40
+          ]
+        },
+        "duration": 405,
+        "plane_type": "Boeing 787"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1437000
+    }
+  },
+  {
+    "type": "NH",
+    "price": 3732,
+    "airlines": [
+      "ANA"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            6,
+            35
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            14,
+            30
+          ]
+        },
+        "duration": 415,
+        "plane_type": "Boeing 787"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1437000
+    }
+  },
+  {
+    "type": "JL",
+    "price": 4433,
+    "airlines": [
+      "JAL"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            8,
+            15
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            16,
+            0
+          ]
+        },
+        "duration": 405,
+        "plane_type": "Boeing 767"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1993000
+    }
+  },
+  {
+    "type": "SQ",
+    "price": 4520,
+    "airlines": [
+      "Singapore Airlines"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            9,
+            20
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            17,
+            5
+          ]
+        },
+        "duration": 405,
+        "plane_type": "Boeing 777"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1789000
+    }
+  },
+  {
+    "type": "SQ",
+    "price": 5368,
+    "airlines": [
+      "Singapore Airlines"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Narita International Airport",
+          "code": "NRT"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            23,
+            55
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            23
+          ],
+          "time": [
+            7,
+            30
+          ]
+        },
+        "duration": 395,
+        "plane_type": "Boeing 787"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1043000
+    }
+  }
+]

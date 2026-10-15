@@ -1,0 +1,143 @@
+[
+  {
+    "type": "JL",
+    "price": 5186,
+    "airlines": [
+      "JAL"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Haneda Airport",
+          "code": "HND"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            22,
+            25
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            23
+          ],
+          "time": [
+            5,
+            55
+          ]
+        },
+        "duration": 390,
+        "plane_type": "Boeing 777"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1678000
+    }
+  },
+  {
+    "type": "NH",
+    "price": 5889,
+    "airlines": [
+      "ANA"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Haneda Airport",
+          "code": "HND"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            22,
+            20
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            23
+          ],
+          "time": [
+            5,
+            55
+          ]
+        },
+        "duration": 395,
+        "plane_type": "Boeing 787"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1412000
+    }
+  },
+  {
+    "type": "SQ",
+    "price": 6152,
+    "airlines": [
+      "Singapore Airlines"
+    ],
+    "flights": [
+      {
+        "from_airport": {
+          "name": "Singapore Changi Airport",
+          "code": "SIN"
+        },
+        "to_airport": {
+          "name": "Haneda Airport",
+          "code": "HND"
+        },
+        "departure": {
+          "date": [
+            2027,
+            1,
+            22
+          ],
+          "time": [
+            22,
+            55
+          ]
+        },
+        "arrival": {
+          "date": [
+            2027,
+            1,
+            23
+          ],
+          "time": [
+            6,
+            20
+          ]
+        },
+        "duration": 385,
+        "plane_type": "Boeing 777"
+      }
+    ],
+    "carbon": {
+      "typical_on_route": 1559000,
+      "emission": 1757000
+    }
+  }
+]
