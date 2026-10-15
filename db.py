@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS fetch_log (
 
 def connect(path):
     conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
     return conn
 
