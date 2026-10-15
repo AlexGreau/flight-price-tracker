@@ -5,8 +5,10 @@ from datetime import date, datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
+import alerts
 import config
 import db
+import notify
 from fetch import fetch_pair
 
 LOG_DIR = Path(__file__).resolve().parent / "logs"
@@ -39,15 +41,28 @@ def setup_logging():
     )
 
 
+def send_alert(text):
+    """Send via Telegram if configured. Never raises: an alert failure must not fail the job."""
+    if not (config.TELEGRAM_BOT_TOKEN and config.TELEGRAM_CHAT_ID):
+        log.warning("Telegram not configured, alert not sent: %s", text)
+        return
+    try:
+        notify.send(text, config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHAT_ID)
+    except Exception as e:
+        log.error("Alert not sent: %s", e)
+
+
 def main():
     setup_logging()
     watch = build_watch()
     conn = db.connect(config.DB_PATH)
     try:
-        run_id = db.start_run(conn, watch["id"], now_sgt())
-        pairs_ok = pairs_failed = 0
+        started_at = now_sgt()
+        run_id = db.start_run(conn, watch["id"], started_at)
+        results = []
         for outbound, ret in itertools.product(watch["outbound_dates"], watch["return_dates"]):
             rows, attempts = fetch_pair(watch, outbound, ret, config.SERPAPI_KEY)
+            ok = False
             try:
                 db.insert_fetch_log(conn, run_id, outbound, ret, attempts)
                 conn.commit()
@@ -60,13 +75,18 @@ def main():
                                outbound_date=outbound, return_date=ret)
                 db.insert_itineraries(conn, run_id, rows)
                 conn.commit()
-                pairs_ok += 1
+                ok = True
             except Exception as e:
                 conn.rollback()
-                pairs_failed += 1
                 log.error("%s -> %s failed: %r", outbound, ret, e)
+            results.append((outbound, ret, ok, attempts))
+        pairs_ok = sum(ok for _, _, ok, _ in results)
+        pairs_failed = len(results) - pairs_ok
         db.finish_run(conn, run_id, now_sgt(), pairs_ok, pairs_failed)
         log.info("Run %d: %d ok, %d failed", run_id, pairs_ok, pairs_failed)
+        for text in [alerts.failure_summary(started_at, results), alerts.deal_alert(conn, run_id, config)]:
+            if text:
+                send_alert(text)
     finally:
         conn.close()
 

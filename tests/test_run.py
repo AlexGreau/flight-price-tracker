@@ -17,6 +17,8 @@ def load(name):
 
 
 SERPAPI_OK = (fetch.parse_serpapi(load("serpapi_2027-01-22_2027-01-30.json")), "SGD")
+FAILURE_TEXT = ("Run 08:07 — 1/2 OK.\n"
+                "2027-01-22→01-31 failed after 5 attempts (IndexError('list index out of range'))")
 FF_OK = (fetch.parse_fast_flights(load("fast_flights_2027-01-22_2027-01-30_NRT.json")
                                   + load("fast_flights_2027-01-22_2027-01-30_HND.json")), "SGD")
 
@@ -27,8 +29,14 @@ class RunTest(unittest.TestCase):
         self.addCleanup(tmp.cleanup)
         self.db_path = os.path.join(tmp.name, "flights.db")
         real_fetch_pair = run.fetch_pair
+        self.send = mock.Mock()
         for patcher in [
             mock.patch("config.DB_PATH", self.db_path),
+            mock.patch("config.TELEGRAM_BOT_TOKEN", "tok"),
+            mock.patch("config.TELEGRAM_CHAT_ID", "chat"),
+            mock.patch("config.DEAL_THRESHOLD_SGD", None),
+            mock.patch("notify.send", self.send),
+            mock.patch("run.now_sgt", lambda: "2026-10-15T08:07:00+08:00"),
             mock.patch("run.setup_logging"),
             mock.patch("run.fetch_pair", lambda *args: real_fetch_pair(*args, sleep=lambda seconds: None)),
         ]:
@@ -71,6 +79,7 @@ class RunTest(unittest.TestCase):
             (2, "2027-01-22", "2027-01-31", 15),
         ])
         self.assertEqual(self.query("SELECT COUNT(*) FROM itineraries"), [(60,)])
+        self.assertEqual(self.send.call_args_list, [])
 
         dupes = self.query(
             "SELECT run_id, return_date, flight_numbers FROM itineraries "
@@ -95,16 +104,18 @@ class RunTest(unittest.TestCase):
             ],
         )
 
+    @staticmethod
+    def serpapi_bad_key(watch, outbound_date, return_date, api_key):
+        raise RuntimeError("SerpApi 401: Invalid API key.")
+
+    @staticmethod
+    def fast_flights_fails_jan31(watch, outbound_date, return_date, api_key):
+        if return_date == "2027-01-31":
+            raise IndexError("list index out of range")
+        return [dict(it) for it in FF_OK[0]], "SGD"
+
     def test_bad_api_key_falls_back_then_fails_pair_without_crashing(self):
-        def serpapi(watch, outbound_date, return_date, api_key):
-            raise RuntimeError("SerpApi 401: Invalid API key.")
-
-        def fast_flights(watch, outbound_date, return_date, api_key):
-            if return_date == "2027-01-31":
-                raise IndexError("list index out of range")
-            return [dict(it) for it in FF_OK[0]], "SGD"
-
-        logs = self.run_with_sources(serpapi, fast_flights)
+        logs = self.run_with_sources(self.serpapi_bad_key, self.fast_flights_fails_jan31)
 
         self.assertEqual(self.query("SELECT id, pairs_ok, pairs_failed, finished_at IS NOT NULL FROM runs"), [(1, 1, 1, 1)])
         self.assertEqual(
@@ -122,6 +133,34 @@ class RunTest(unittest.TestCase):
         )
         self.assertIn("ERROR:run:2027-01-22 -> 2027-01-31 failed: RuntimeError('all 5 attempts failed')", logs)
         self.assertEqual(logs[-1], "INFO:run:Run 1: 1 ok, 1 failed")
+        self.assertEqual(self.send.call_args_list, [mock.call(FAILURE_TEXT, "tok", "chat")])
+
+    def test_alert_failure_is_logged_not_raised(self):
+        self.send.side_effect = RuntimeError("Telegram 401: Unauthorized")
+        logs = self.run_with_sources(self.serpapi_bad_key, self.fast_flights_fails_jan31)
+        self.assertEqual(logs[-2:], ["INFO:run:Run 1: 1 ok, 1 failed",
+                                     "ERROR:run:Alert not sent: Telegram 401: Unauthorized"])
+
+    def test_unconfigured_telegram_skips_send(self):
+        with mock.patch("config.TELEGRAM_BOT_TOKEN", None):
+            logs = self.run_with_sources(self.serpapi_bad_key, self.fast_flights_fails_jan31)
+        self.assertEqual(self.send.call_args_list, [])
+        self.assertEqual(logs[-1], "WARNING:run:Telegram not configured, alert not sent: " + FAILURE_TEXT)
+
+    def test_new_low_on_second_run_sends_one_deal_alert(self):
+        prices = iter([{}, {"NH 842": 3200}])
+
+        def serpapi(watch, outbound_date, return_date, api_key):
+            cut = next(prices) if return_date == "2027-01-30" else {}
+            return [{**it, "total_price_sgd": cut.get(it["flight_numbers"], it["total_price_sgd"])}
+                    for it in SERPAPI_OK[0]], "SGD"
+
+        self.run_with_sources(serpapi, mock.Mock(side_effect=AssertionError("fallback not expected")), runs=2)
+
+        self.assertEqual(self.send.call_args_list, [mock.call(
+            "Flight deal\n"
+            "2027-01-22→01-30: SGD 3,200 (quoted SGD 3,200), ANA NH 842, 10:45→18:25 HND, previous low SGD 3,356",
+            "tok", "chat")])
 
 
 if __name__ == "__main__":
