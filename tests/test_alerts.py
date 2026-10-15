@@ -33,7 +33,7 @@ class FailureSummaryTest(unittest.TestCase):
         self.assertIsNone(alerts.failure_summary("2026-10-15T08:07:12+08:00", results))
 
 
-class DealAlertTest(unittest.TestCase):
+class DbTest(unittest.TestCase):
     def setUp(self):
         self.conn = db.connect(":memory:")
         self.addCleanup(self.conn.close)
@@ -46,6 +46,8 @@ class DealAlertTest(unittest.TestCase):
             for it in itineraries])
         return run_id
 
+
+class DealAlertTest(DbTest):
     def test_first_run_never_alerts_on_new_low(self):
         self.assertIsNone(alerts.deal_alert(self.conn, self.add_run(NH802), cfg(DEAL_THRESHOLD_SGD=None)))
 
@@ -71,6 +73,26 @@ class DealAlertTest(unittest.TestCase):
                          "2027-01-22→01-31: SGD 3,932 (quoted SGD 3,732), ANA NH 802, 06:35→14:30 NRT, NRT +200, "
                          "extra night not included, no previous low, below SGD 4,000 threshold")
         self.assertIsNone(alerts.deal_alert(self.conn, second, c))
+
+
+class RunSummaryTest(DbTest):
+    def test_lists_cheapest_qualifying_options_and_all_time_low(self):
+        first = self.add_run({**NH802, "total_price_sgd": 3500})
+        db.finish_run(self.conn, first, "x", 1, 0)
+        second = self.add_run(NH802, NH842, SQ634)
+        db.finish_run(self.conn, second, "x", 1, 1)
+        self.assertEqual(alerts.run_summary(self.conn, second, cfg(), top=2),
+                         "Run 2, 2026-10-15 08:07: 1/2 pairs OK\n"
+                         "\n2027-01-22→01-30 (via serpapi):\n"
+                         "1. SGD 3,732 (quoted SGD 3,732), ANA NH 842, 10:45→18:25 HND\n"
+                         "2. SGD 3,932 (quoted SGD 3,732), ANA NH 802, 06:35→14:30 NRT, NRT +200\n"
+                         "All-time low: SGD 3,700 (run 1)")
+
+    def test_no_qualifying_flight(self):
+        run_id = self.add_run(SQ634)
+        db.finish_run(self.conn, run_id, "x", 1, 0)
+        self.assertEqual(alerts.run_summary(self.conn, run_id, cfg()),
+                         "Run 1, 2026-10-15 08:07: 1/1 pairs OK\nNo flight in this run meets the arrival window.")
 
 
 if __name__ == "__main__":

@@ -43,7 +43,8 @@ flight_tracker/
 ├── validate.py        # Sanity checks that turn silent failures into failures
 ├── db.py              # SQLite schema + insert/query helpers
 ├── analysis.py        # Pure helpers: arrival window, red-eye, adjusted cost
-├── alerts.py          # Builds failure-summary and deal-alert message text
+├── alerts.py          # Builds failure-summary, deal-alert and daily-digest message text
+├── summary.py         # Entry point for cron/manual: Telegram digest of the latest run (no quota)
 ├── notify.py          # Telegram sendMessage wrapper
 ├── run.py             # Entry point for cron: one full snapshot run
 ├── heartbeat.py       # Entry point for cron: alert if no success in 24h
@@ -190,6 +191,7 @@ Label red-eye outbounds (`depart_time` before `RED_EYE_DEPART_BEFORE_LOCAL`) as 
 ```
 7 8,20 * * *   cd ~/flight_tracker && .venv/bin/python run.py
 30 21 * * *    cd ~/flight_tracker && .venv/bin/python heartbeat.py
+15 20 * * *    cd ~/flight_tracker && .venv/bin/python summary.py
 ```
 
 Run at odd minutes, not on the hour.

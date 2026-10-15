@@ -34,7 +34,7 @@ fi
 
 echo "== Cron"
 if command -v crontab >/dev/null; then
-  for job in run.py heartbeat.py; do
+  for job in run.py heartbeat.py summary.py; do
     crontab -l 2>/dev/null | grep -v '^#' | grep -q "$job" && ok "$job scheduled" || fail "$job not in crontab"
   done
 else

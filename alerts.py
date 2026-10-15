@@ -27,6 +27,13 @@ def _sgd(amount):
     return f"SGD {amount:,.0f}"
 
 
+def _describe(row, cost, notes):
+    return ", ".join([f"{_sgd(cost)} (quoted {_sgd(row['total_price_sgd'])})",
+                      " ".join(filter(None, [row["airline"], row["flight_numbers"]])),
+                      f"{row['depart_time'][11:16]}→{row['arrive_time'][11:16]} {row['arrival_airport']}",
+                      *notes])
+
+
 def deal_alert(conn, run_id, cfg):
     """New all-time low per date pair, or a first crossing below cfg.DEAL_THRESHOLD_SGD."""
     best = {}  # (outbound, return, run_id) -> (adjusted cost, notes, row), qualifying itineraries only
@@ -49,12 +56,34 @@ def deal_alert(conn, run_id, cfg):
         crossed = threshold is not None and cost < threshold and not (earlier and earlier[-1] < threshold)
         if not (new_low or crossed):
             continue
-        parts = [f"{_pair(outbound, ret)}: {_sgd(cost)} (quoted {_sgd(row['total_price_sgd'])})",
-                 " ".join(filter(None, [row["airline"], row["flight_numbers"]])),
-                 f"{row['depart_time'][11:16]}→{row['arrive_time'][11:16]} {row['arrival_airport']}",
-                 *notes,
+        parts = [f"{_pair(outbound, ret)}: {_describe(row, cost, notes)}",
                  f"previous low {_sgd(prev_low)}" if prev_low is not None else "no previous low"]
         if crossed:
             parts.append(f"below {_sgd(threshold)} threshold")
         lines.append(", ".join(parts))
     return "\n".join(["Flight deal", *lines]) if lines else None
+
+
+def run_summary(conn, run_id, cfg, top=3):
+    """Digest of one run: status, its cheapest qualifying options per pair, and each pair's all-time low."""
+    run = conn.execute("SELECT started_at, pairs_ok, pairs_failed FROM runs WHERE id = ?", (run_id,)).fetchone()
+    lines = [f"Run {run_id}, {run['started_at'][:16].replace('T', ' ')}: "
+             f"{run['pairs_ok']}/{run['pairs_ok'] + run['pairs_failed']} pairs OK"]
+    latest, all_time = {}, {}  # (outbound, return) -> qualifying (cost, notes, row); all_time keeps the min
+    for row in conn.execute("SELECT * FROM itineraries WHERE run_id <= ? ORDER BY id", (run_id,)):
+        if not meets_arrival_window(row, cfg):
+            continue
+        cost, notes = adjusted_cost(row, cfg)
+        key = (row["outbound_date"], row["return_date"])
+        if row["run_id"] == run_id:
+            latest.setdefault(key, []).append((cost, notes, row))
+        if key not in all_time or cost < all_time[key][0]:
+            all_time[key] = (cost, notes, row)
+    for key in sorted(latest):
+        options = sorted(latest[key], key=lambda option: option[0])
+        lines.append(f"\n{_pair(*key)} (via {options[0][2]['source']}):")
+        lines += [f"{i}. {_describe(row, cost, notes)}" for i, (cost, notes, row) in enumerate(options[:top], 1)]
+        lines.append(f"All-time low: {_sgd(all_time[key][0])} (run {all_time[key][2]['run_id']})")
+    if not latest:
+        lines.append("No flight in this run meets the arrival window.")
+    return "\n".join(lines)
