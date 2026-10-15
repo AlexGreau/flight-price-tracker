@@ -72,3 +72,11 @@ def finish_run(conn, run_id, finished_at, pairs_ok, pairs_failed):
         (finished_at, pairs_ok, pairs_failed, run_id),
     )
     conn.commit()
+
+
+def insert_fetch_log(conn, run_id, outbound_date, return_date, attempts):
+    conn.executemany(
+        """INSERT INTO fetch_log (run_id, ts, outbound_date, return_date, source, attempt, outcome, error)
+           VALUES (:run_id, :ts, :outbound_date, :return_date, :source, :attempt, :outcome, :error)""",
+        [{**a, "run_id": run_id, "outbound_date": outbound_date, "return_date": return_date} for a in attempts],
+    )
