@@ -1,0 +1,756 @@
+{
+  "search_metadata": {
+    "id": "6ad0a6ae936151b07281da84",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/wOfsVKbDoekCZI2BDyHwJ5Y48ijoxhXGahfswj1V5Tg/6ad0a6ae936151b07281da84.json",
+    "markdown_endpoint": "https://serpapi.com/searches/wOfsVKbDoekCZI2BDyHwJ5Y48ijoxhXGahfswj1V5Tg/6ad0a6ae936151b07281da84.md",
+    "created_at": "2026-10-15 10:10:54 UTC",
+    "processed_at": "2026-10-15 10:10:54 UTC",
+    "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=sg&curr=SGD&tfs=CBwQAhopEgoyMDI3LTAxLTIyKABqBwgBEgNTSU5yBwgBEgNITkRyBwgBEgNOUlQaKRIKMjAyNy0wMS0zMCgAagcIARIDSE5EagcIARIDTlJUcgcIARIDU0lOQAFAAUABQAFIAXABmAEB&tfu=EgIIAQ",
+    "raw_html_file": "https://serpapi.com/searches/wOfsVKbDoekCZI2BDyHwJ5Y48ijoxhXGahfswj1V5Tg/6ad0a6ae936151b07281da84.html",
+    "prettify_html_file": "https://serpapi.com/searches/wOfsVKbDoekCZI2BDyHwJ5Y48ijoxhXGahfswj1V5Tg/6ad0a6ae936151b07281da84.prettify",
+    "total_time_taken": 4.93
+  },
+  "search_parameters": {
+    "engine": "google_flights",
+    "hl": "en",
+    "gl": "sg",
+    "type": "1",
+    "departure_id": "SIN",
+    "arrival_id": "HND,NRT",
+    "outbound_date": "2027-01-22",
+    "return_date": "2027-01-30",
+    "adults": 4,
+    "stops": 1,
+    "currency": "SGD"
+  },
+  "best_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 17:35"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-23 01:00"
+          },
+          "duration": 385,
+          "airplane": "Boeing 787",
+          "airline": "Scoot",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+          "travel_class": "Economy",
+          "flight_number": "TR 804",
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Wi-Fi for a fee",
+            "In-seat power outlet",
+            "Carbon emissions estimate: 1116 kg"
+          ]
+        }
+      ],
+      "total_duration": 385,
+      "carbon_emissions": {
+        "this_flight": 1116000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -28
+      },
+      "price": 2788,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZVVWpnd05Cb0xDSkNDRVJBQ0dnTlRSMFE0SEhERW9nMD0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIlRSIiwiODA0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 00:40"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-22 08:25"
+          },
+          "duration": 405,
+          "airplane": "Boeing 787",
+          "airline": "ZIPAIR Tokyo",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/ZG.png",
+          "travel_class": "Economy",
+          "flight_number": "ZG 54",
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 1298 kg"
+          ],
+          "overnight": true,
+          "often_delayed_by_over_30_min": true
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 1298000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -17
+      },
+      "price": 2856,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/ZG.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1JhUnpVMEdnc0lvTGNSRUFJYUExTkhSRGdjY1B2TERRPT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIlpHIiwiNTQiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 06:35"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-22 14:30"
+          },
+          "duration": 415,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 802",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1437 kg"
+          ],
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 415,
+      "carbon_emissions": {
+        "this_flight": 1437000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -8
+      },
+      "price": 3732,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZPU0Rnd01ob0xDS2pqRmhBQ0dnTlRSMFE0SEhDMDRSRT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIk5IIiwiODAyIl1dXQ=="
+    }
+  ],
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 23:30"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-23 07:10"
+          },
+          "duration": 400,
+          "airplane": "Boeing 787",
+          "airline": "Scoot",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+          "travel_class": "Economy",
+          "flight_number": "TR 894",
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Wi-Fi for a fee",
+            "In-seat power outlet",
+            "Carbon emissions estimate: 1136 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 400,
+      "carbon_emissions": {
+        "this_flight": 1136000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -27
+      },
+      "price": 3116,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZVVWpnNU5Cb0xDTENDRXhBQ0dnTlRSMFE0SEhDdTZnND0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIlRSIiwiODk0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 00:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-22 08:40"
+          },
+          "duration": 405,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 804",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1437 kg"
+          ],
+          "overnight": true,
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 1437000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -8
+      },
+      "price": 3732,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZPU0Rnd05Cb0xDS2pqRmhBQ0dnTlRSMFE0SEhDMDRSRT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIk5IIiwiODA0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 10:45"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-22 18:25"
+          },
+          "duration": 400,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 842",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1411 kg"
+          ]
+        }
+      ],
+      "total_duration": 400,
+      "carbon_emissions": {
+        "this_flight": 1412000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -9
+      },
+      "price": 3989,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZPU0RnME1ob0xDS0NzR0JBQ0dnTlRSMFE0SEhDTi9oST0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIk5IIiwiODQyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 08:15"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-22 16:00"
+          },
+          "duration": 405,
+          "airplane": "Boeing 767",
+          "airline": "JAL",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+          "travel_class": "Economy",
+          "flight_number": "JL 712",
+          "legroom": "33 in",
+          "extensions": [
+            "Above average legroom (33 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1992 kg"
+          ]
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 1993000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": 28
+      },
+      "price": 4433,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZLVERjeE1ob0xDT2lHR3hBQ0dnTlRSMFE0SEhDdGpCVT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIkpMIiwiNzEyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 09:20"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-22 17:05"
+          },
+          "duration": 405,
+          "airplane": "Boeing 777",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 12",
+          "ticket_also_sold_by": [
+            "ANA"
+          ],
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1788 kg"
+          ]
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 1789000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": 15
+      },
+      "price": 4516,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1JUVVRFeUdnc0lrTWdiRUFJYUExTkhSRGdjY0tTL0ZRPT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIlNRIiwiMTIiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 14:05"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-22 21:40"
+          },
+          "duration": 395,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 634",
+          "ticket_also_sold_by": [
+            "ANA"
+          ],
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1278 kg"
+          ]
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 1278000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -18
+      },
+      "price": 4556,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZUVVRZek5Cb0xDTERuR3hBQ0dnTlRSMFE0SEhEVTF4VT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIlNRIiwiNjM0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 08:05"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-22 15:35"
+          },
+          "duration": 390,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 632",
+          "ticket_also_sold_by": [
+            "ANA"
+          ],
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1278 kg"
+          ]
+        }
+      ],
+      "total_duration": 390,
+      "carbon_emissions": {
+        "this_flight": 1278000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -18
+      },
+      "price": 4972,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZUVVRZek1ob0xDTENzSGhBQ0dnTlRSMFE0SEhDTTFSYz0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIlNRIiwiNjMyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 02:20"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-22 09:55"
+          },
+          "duration": 395,
+          "airplane": "Boeing 767",
+          "airline": "JAL",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+          "travel_class": "Economy",
+          "flight_number": "JL 38",
+          "legroom": "33 in",
+          "extensions": [
+            "Above average legroom (33 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1957 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 1957000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": 26
+      },
+      "price": 4986,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1JLVERNNEdnc0lnTGNlRUFJYUExTkhSRGdjY0xIZEZ3PT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIkpMIiwiMzgiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 22:25"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-23 05:55"
+          },
+          "duration": 390,
+          "airplane": "Boeing 777",
+          "airline": "JAL",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+          "travel_class": "Economy",
+          "flight_number": "JL 36",
+          "legroom": "33 in",
+          "extensions": [
+            "Above average legroom (33 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1678 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 390,
+      "carbon_emissions": {
+        "this_flight": 1678000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": 8
+      },
+      "price": 5186,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/JL.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1JLVERNMkdnc0lvTk1mRUFJYUExTkhSRGdjY0ozWEdBPT0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIkpMIiwiMzYiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 23:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2027-01-23 07:30"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 638",
+          "ticket_also_sold_by": [
+            "ANA"
+          ],
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1043 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 1043000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -33
+      },
+      "price": 5364,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZUVVRZek9Cb0xDTkRlSUJBQ0dnTlRSMFE0SEhEMXd4az0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJOUlQiLG51bGwsIlNRIiwiNjM4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 22:20"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-23 05:55"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 844",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1411 kg"
+          ],
+          "overnight": true,
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 1412000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": -9
+      },
+      "price": 5889,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZPU0RnME5Cb0xDTkQ0SXhBQ0dnTlRSMFE0SEhEUmd4dz0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIk5IIiwiODQ0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-22 22:55"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2027-01-23 06:20"
+          },
+          "duration": 385,
+          "airplane": "Boeing 777",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 636",
+          "ticket_also_sold_by": [
+            "ANA"
+          ],
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 1757 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 385,
+      "carbon_emissions": {
+        "this_flight": 1757000,
+        "typical_for_this_route": 1559000,
+        "difference_percent": 13
+      },
+      "price": 6152,
+      "type": "Round trip",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "departure_token": "WyJDalJJTWxGS1pWRXpRamhZTWpSQlEyVllUbWRDUnkwdExTMHRMUzE1YVdob05TMXVNVUZCUVVGQlIzSlJjSEU0VEZCSlQzbEJFZ1ZUVVRZek5ob0xDS0RHSlJBQ0dnTlRSMFE0SEhEK294MD0iLFtbIlNJTiIsIjIwMjctMDEtMjIiLCJITkQiLG51bGwsIlNRIiwiNjM2Il1dXQ=="
+    }
+  ],
+  "price_insights": {
+    "lowest_price": 2788,
+    "price_level": "high",
+    "typical_price_range": [
+      1550,
+      2450
+    ]
+  },
+  "airports": [
+    {
+      "departure": [
+        {
+          "airport": {
+            "id": "SIN",
+            "name": "Singapore Changi Airport"
+          },
+          "city": "Singapore",
+          "country": "Singapore",
+          "country_code": "SG",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPxNDQYUBDKl_Cnb-2R_TakwdFGzKIpvsMBeDdYwNHK_c2jUY6LVQ5R_mwZDf9hOuu6iHgYjrL87eDZw",
+          "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSp10Y3G-u5LPBzRWABhOUD7BGcBspacZc2r31UP6QmzLmyprerN-6BZ5wZkdsDXngRuIYCPQI8Ny3uYjbRegATm48AJfppuLgpsc0mhsE"
+        }
+      ],
+      "arrival": [
+        {
+          "airport": {
+            "id": "HND",
+            "name": "Haneda Airport"
+          },
+          "city": "Tokyo",
+          "country": "Japan",
+          "country_code": "JP",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqHkzEeI2bSglPzmSGZL7bxXmn0wJgOn2ZtEN8I47uBnzY1CnHzGtD-YseJXqyexcAcw_uJp-D5HTkCg",
+          "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLnIToEgwiM_jV3cbw5eQZoUAIg6XqdrJAiClDyyg0w-JBSRN5ZeOT-iFb3SvwkwP1uoBCmT-gKE5VcyCYf-xq4guL4NAFICSaNyOnYOA"
+        },
+        {
+          "airport": {
+            "id": "NRT",
+            "name": "Narita International Airport"
+          },
+          "city": "Tokyo",
+          "country": "Japan",
+          "country_code": "JP",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqHkzEeI2bSglPzmSGZL7bxXmn0wJgOn2ZtEN8I47uBnzY1CnHzGtD-YseJXqyexcAcw_uJp-D5HTkCg",
+          "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLnIToEgwiM_jV3cbw5eQZoUAIg6XqdrJAiClDyyg0w-JBSRN5ZeOT-iFb3SvwkwP1uoBCmT-gKE5VcyCYf-xq4guL4NAFICSaNyOnYOA"
+        }
+      ]
+    },
+    {
+      "departure": [
+        {
+          "airport": {
+            "id": "HND",
+            "name": "Haneda Airport"
+          },
+          "city": "Tokyo",
+          "country": "Japan",
+          "country_code": "JP",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqHkzEeI2bSglPzmSGZL7bxXmn0wJgOn2ZtEN8I47uBnzY1CnHzGtD-YseJXqyexcAcw_uJp-D5HTkCg",
+          "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLnIToEgwiM_jV3cbw5eQZoUAIg6XqdrJAiClDyyg0w-JBSRN5ZeOT-iFb3SvwkwP1uoBCmT-gKE5VcyCYf-xq4guL4NAFICSaNyOnYOA"
+        },
+        {
+          "airport": {
+            "id": "NRT",
+            "name": "Narita International Airport"
+          },
+          "city": "Tokyo",
+          "country": "Japan",
+          "country_code": "JP",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqHkzEeI2bSglPzmSGZL7bxXmn0wJgOn2ZtEN8I47uBnzY1CnHzGtD-YseJXqyexcAcw_uJp-D5HTkCg",
+          "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLnIToEgwiM_jV3cbw5eQZoUAIg6XqdrJAiClDyyg0w-JBSRN5ZeOT-iFb3SvwkwP1uoBCmT-gKE5VcyCYf-xq4guL4NAFICSaNyOnYOA"
+        }
+      ],
+      "arrival": [
+        {
+          "airport": {
+            "id": "SIN",
+            "name": "Singapore Changi Airport"
+          },
+          "city": "Singapore",
+          "country": "Singapore",
+          "country_code": "SG",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPxNDQYUBDKl_Cnb-2R_TakwdFGzKIpvsMBeDdYwNHK_c2jUY6LVQ5R_mwZDf9hOuu6iHgYjrL87eDZw",
+          "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSp10Y3G-u5LPBzRWABhOUD7BGcBspacZc2r31UP6QmzLmyprerN-6BZ5wZkdsDXngRuIYCPQI8Ny3uYjbRegATm48AJfppuLgpsc0mhsE"
+        }
+      ]
+    }
+  ]
+}

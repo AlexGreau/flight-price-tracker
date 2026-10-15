@@ -1,0 +1,5 @@
+.env
+flights.db
+logs/
+.venv/
+__pycache__/
