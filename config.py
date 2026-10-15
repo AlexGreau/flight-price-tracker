@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta, timezone
 
 from dotenv import load_dotenv
 
@@ -8,6 +9,9 @@ SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 DB_PATH = os.getenv("DB_PATH", "flights.db")
+
+# Singapore has no DST; a fixed offset avoids needing a tz database on Windows.
+SGT = timezone(timedelta(hours=8))
 
 WATCH_ID = "tokyo-jan-2027"
 ORIGIN = "SIN"

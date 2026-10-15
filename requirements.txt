@@ -1,2 +1,6 @@
 requests
 python-dotenv
+fast-flights==3.1.0
+primp==2.0.1
+# fast-flights 3.1.0 imports typing_extensions without declaring it
+typing_extensions
