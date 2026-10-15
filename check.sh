@@ -48,10 +48,12 @@ fi
 
 echo "== Recent data"
 "$PY" - <<'EOF' || failed=1
-import sqlite3, sys
+import os, sqlite3, sys
 from datetime import datetime, timedelta
 import config, heartbeat
 
+if not os.path.exists(config.DB_PATH):
+    print(f"FAIL  {config.DB_PATH} does not exist yet (no run so far): ./check.sh --live"); sys.exit(1)
 try:
     conn = sqlite3.connect(f"file:{config.DB_PATH}?mode=ro", uri=True)
     runs = conn.execute("SELECT id, started_at, pairs_ok, pairs_failed FROM runs ORDER BY id DESC LIMIT 4").fetchall()
